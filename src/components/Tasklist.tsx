@@ -1,23 +1,29 @@
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Table from 'react-bootstrap/Table';
+import TaskTable from './TaskTable';
+
+type ToDoFormProps = {
+    handleSubmit: (e:React.FormEvent) => void,
+    toDos:string[]
+}
+
+export default function Tasklist({handleSubmit,toDos}:ToDoFormProps) {
 
 
-export default function Tasklist() {
 
     return (
         <>
-            <Form.Label id="form-name" htmlFor="inputPassword5">Name</Form.Label>
+        <Form onSubmit={handleSubmit}>
+            <Form.Label id="form-task" htmlFor="task">Task</Form.Label>
             <Form.Control
                 type="text"
+                placeholder='Enter a task'
+                name="task"
             />
             <br />
-            <Form.Label id="form-task" htmlFor="inputPassword5">Task</Form.Label>
-            <Form.Control
-                type="text"
-            />
-            <br />
-            <Button as="input" variant="dark" type="submit" value="Submit" />{' '}
+            <Button id='' variant="dark" type="submit" value="Submit">Add Task</Button>{' '}
+        </Form>
+        <TaskTable toDos={toDos} />
         </>
     );
 }
