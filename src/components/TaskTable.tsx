@@ -9,7 +9,7 @@ export default function TaskTable({toDos}: ToDoDisplayProps) {
 
     return (
         <>
-        <h1>TO DO LIST</h1>
+        <h1 className='text-center mt-3'>TO DO LIST</h1>
         <Table striped bordered hover variant="dark">
             <thead>
                 <tr>
@@ -18,12 +18,12 @@ export default function TaskTable({toDos}: ToDoDisplayProps) {
                 </tr>
             </thead>
             <tbody>
-            {toDos.map((task, index) => 
-                <tr key={task}>
-                    <td>{index + 1}</td>
-                    <td>{task}</td>
-                </tr>
-            )}
+                {toDos.map((task, index) => (
+                    <tr key={task}>
+                        <td>{index + 1}</td>
+                        <td>{task}</td>
+                    </tr>
+                ))}
             </tbody>
         </Table>
         </>
