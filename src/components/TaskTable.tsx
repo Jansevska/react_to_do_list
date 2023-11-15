@@ -1,10 +1,16 @@
+import { useState } from 'react'
+
 import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
+import TaskDisplay from '../views/TaskDisplay';
+
 
 type ToDoDisplayProps = {
-    toDos:string[]
+    toDos:string[],
+    handleDeleteClick: (e.React.MouseEvent)
 }
 
-export default function TaskTable({toDos}: ToDoDisplayProps) {
+export default function TaskTable({toDos, handleDeleteClick}: ToDoDisplayProps) {
     console.log(toDos);
 
     return (
@@ -22,6 +28,12 @@ export default function TaskTable({toDos}: ToDoDisplayProps) {
                     <tr key={task}>
                         <td>{index + 1}</td>
                         <td>{task}</td>
+                        <Button onSubmit={handleDeleteClick} variant="outline-danger">Danger</Button>{' '}
+                        {toDos.filter((task, index) => (
+                            <tr key={task}>
+                                <td>{index -1}</td>
+                            </tr>
+                        ))}
                     </tr>
                 ))}
             </tbody>
