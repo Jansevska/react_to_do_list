@@ -23,7 +23,7 @@ export default function Tasklist({handleSubmit,toDos}:ToDoFormProps) {
                 </Form>
             </Card.Body>
         </Card>
-        <TaskTable toDos={toDos} handleDeleteClick={handleDeleteClick}/>
+        <TaskTable toDos={toDos} handleDeleteClick={HashChange}/>
         </>
     );
 }

@@ -1,17 +1,20 @@
 import { useState } from 'react'
-
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
-import TaskDisplay from '../views/TaskDisplay';
+
 
 
 type ToDoDisplayProps = {
-    toDos:string[],
-    handleDeleteClick: (e.React.MouseEvent)
+    toDos:string[]
+    handleDeleteClick: (task:string) => void
+    editTask: (index:number, newTask:string) => void
 }
 
-export default function TaskTable({toDos, handleDeleteClick}: ToDoDisplayProps) {
+export default function TaskTable({toDos, handleDeleteClick, editTask}: ToDoDisplayProps) {
     console.log(toDos);
+
+    // const [editFormId, setEditFormId] = useState<number|null>(null)
+    // const [editedTask, setEditedTask] = useState<string>('')
 
     return (
         <>
@@ -27,13 +30,9 @@ export default function TaskTable({toDos, handleDeleteClick}: ToDoDisplayProps) 
                 {toDos.map((task, index) => (
                     <tr key={task}>
                         <td>{index + 1}</td>
-                        <td>{task}</td>
-                        <Button onSubmit={handleDeleteClick} variant="outline-danger">Danger</Button>{' '}
-                        {toDos.filter((task, index) => (
-                            <tr key={task}>
-                                <td>{index -1}</td>
-                            </tr>
-                        ))}
+                        <td><span>{task}</span></td>
+                        <Button></Button>
+                        <Button className="ms-3" value={task} variant="outline-danger" type='submit' onClick={() => handleDeleteClick(task)}>Delete</Button>
                     </tr>
                 ))}
             </tbody>
