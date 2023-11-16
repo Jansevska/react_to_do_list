@@ -9,7 +9,7 @@ type ToDoDisplayProps = {
 }
 
 export default function TaskTable({toDos}: ToDoDisplayProps) {
-    console.log(toDos);
+    
 
     return (
         <>
@@ -22,12 +22,15 @@ export default function TaskTable({toDos}: ToDoDisplayProps) {
                 </tr>
             </thead>
             <tbody>
+
                 {toDos.map((task, index) => (
                     <tr key={task}>
                         <td>{index + 1}</td>
-                        <td><span>{task}</span></td>
-                        <Button></Button>
-                        <Button className="ms-3" value={task} variant="outline-danger" type='submit'>Delete</Button>
+                        <td>{task}
+                        <Button className='ms-3' value={task} variant="outline-primary" type="submit" >Edit</Button>
+                        <Button className='ms-3' value={task} variant='outline-danger' type="submit">
+                            Delete</Button> 
+                        </td>
                     </tr>
                 ))}
             </tbody>
