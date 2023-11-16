@@ -1,4 +1,4 @@
-import { useState } from 'react'
+
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 
@@ -6,15 +6,10 @@ import Button from 'react-bootstrap/Button';
 
 type ToDoDisplayProps = {
     toDos:string[]
-    handleDeleteClick: (task:string) => void
-    editTask: (index:number, newTask:string) => void
 }
 
-export default function TaskTable({toDos, handleDeleteClick, editTask}: ToDoDisplayProps) {
+export default function TaskTable({toDos}: ToDoDisplayProps) {
     console.log(toDos);
-
-    // const [editFormId, setEditFormId] = useState<number|null>(null)
-    // const [editedTask, setEditedTask] = useState<string>('')
 
     return (
         <>
@@ -32,7 +27,7 @@ export default function TaskTable({toDos, handleDeleteClick, editTask}: ToDoDisp
                         <td>{index + 1}</td>
                         <td><span>{task}</span></td>
                         <Button></Button>
-                        <Button className="ms-3" value={task} variant="outline-danger" type='submit' onClick={() => handleDeleteClick(task)}>Delete</Button>
+                        <Button className="ms-3" value={task} variant="outline-danger" type='submit'>Delete</Button>
                     </tr>
                 ))}
             </tbody>

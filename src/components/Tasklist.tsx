@@ -5,7 +5,7 @@ import TaskTable from './TaskTable';
 
 type ToDoFormProps = {
     handleSubmit: (e:React.FormEvent) => void,
-    toDos:string[],
+    toDos:string[]
 }
 
 export default function Tasklist({handleSubmit,toDos}:ToDoFormProps) {
@@ -23,7 +23,7 @@ export default function Tasklist({handleSubmit,toDos}:ToDoFormProps) {
                 </Form>
             </Card.Body>
         </Card>
-        <TaskTable toDos={toDos} handleDeleteClick={HashChange}/>
+        <TaskTable toDos={toDos} />
         </>
     );
 }

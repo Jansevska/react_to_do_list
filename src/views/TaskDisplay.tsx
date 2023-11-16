@@ -13,21 +13,9 @@ export default function TaskDisplay() {
         form.task.value = ''
     }
 
-    const editTask = (event:React.MouseEventHandler<HTMLElement['contentEditable']>):void => {}
-
-
-    const handleDeleteClick = (event:React.MouseEvent<HTMLElement>):void => {
-        let form = event.target as HTMLElement;
-        let task = form.filter((task) => task !== taskToDelete);
-        setDeleteClick([...toDos, task])
-        // Find the todo that was clicked (event.target)
-        // filter the todos without that toDo
-        // set the toDos to the new filtered array
-    }
-
     return (
         <>
-        <Tasklist toDos={toDos} handleSubmit={handleFormSubmit} handleDeleteClick={handleDeleteClick} />
+        <Tasklist toDos={toDos} handleSubmit={handleFormSubmit} />
         </>
     )
 }
