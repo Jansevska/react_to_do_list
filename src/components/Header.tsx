@@ -14,8 +14,8 @@ export default function Header({username}:Props) {
                 <Navbar.Brand href="#home">React To Do List | {username? username : " New User"}</Navbar.Brand>
                 <Nav className="me-auto">
                     <Nav.Link href="#home">Home</Nav.Link>
-                    <Nav.Link href="#features">Tasks</Nav.Link>
-                    <Nav.Link href="#pricing">Logout</Nav.Link>
+                    {/* <Nav.Link href="#features">Tasks</Nav.Link>
+                    <Nav.Link href="#pricing">Logout</Nav.Link> */}
                 </Nav>
             </Container>
         </Navbar>

@@ -1,15 +1,14 @@
 
 import Table from 'react-bootstrap/Table';
-import Button from 'react-bootstrap/Button';
-
-
+import TaskRow from './TaskRow';
 
 type ToDoDisplayProps = {
-    toDos:string[]
+    todos:string[]
+    deleteTodo: (task:string) => void
+    editTodo: (task:string, index:number) => void
 }
 
-export default function TaskTable({toDos}: ToDoDisplayProps) {
-    
+export default function TaskTable({todos, deleteTodo, editTodo}: ToDoDisplayProps) {
 
     return (
         <>
@@ -23,15 +22,8 @@ export default function TaskTable({toDos}: ToDoDisplayProps) {
             </thead>
             <tbody>
 
-                {toDos.map((task, index) => (
-                    <tr key={task}>
-                        <td>{index + 1}</td>
-                        <td>{task}
-                        <Button className='ms-3' value={task} variant="outline-primary" type="submit" >Edit</Button>
-                        <Button className='ms-3' value={task} variant='outline-danger' type="submit">
-                            Delete</Button> 
-                        </td>
-                    </tr>
+                {todos.map((task, index) => (
+                    <TaskRow key={task} task={task} index={index} deleteTodo={deleteTodo} editTodo={editTodo}/>
                 ))}
             </tbody>
         </Table>

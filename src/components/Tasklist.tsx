@@ -5,10 +5,12 @@ import TaskTable from './TaskTable';
 
 type ToDoFormProps = {
     handleSubmit: (e:React.FormEvent) => void,
-    toDos:string[]
+    todos:string[],
+    deleteTodo: (task:string) => void
+    editTodo: (task:string, index:number) => void
 }
 
-export default function Tasklist({handleSubmit,toDos}:ToDoFormProps) {
+export default function Tasklist({handleSubmit,todos, deleteTodo, editTodo}:ToDoFormProps) {
 
     
 
@@ -24,7 +26,7 @@ export default function Tasklist({handleSubmit,toDos}:ToDoFormProps) {
                 </Form>
             </Card.Body>
         </Card>
-        <TaskTable toDos={toDos} />
+        <TaskTable todos={todos} deleteTodo={deleteTodo} editTodo={editTodo}/>
         </>
     );
 }
