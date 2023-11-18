@@ -21,7 +21,6 @@ export default function TaskTable({todos, deleteTodo, editTodo}: ToDoDisplayProp
                 </tr>
             </thead>
             <tbody>
-
                 {todos.map((task, index) => (
                     <TaskRow key={task} task={task} index={index} deleteTodo={deleteTodo} editTodo={editTodo}/>
                 ))}

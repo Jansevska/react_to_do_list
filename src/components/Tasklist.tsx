@@ -4,13 +4,13 @@ import Card from 'react-bootstrap/Card'
 import TaskTable from './TaskTable';
 
 type ToDoFormProps = {
-    handleSubmit: (e:React.FormEvent) => void,
+    addTodo: (e:React.FormEvent) => void,
     todos:string[],
     deleteTodo: (task:string) => void
     editTodo: (task:string, index:number) => void
 }
 
-export default function Tasklist({handleSubmit,todos, deleteTodo, editTodo}:ToDoFormProps) {
+export default function Tasklist({addTodo, todos, deleteTodo, editTodo}:ToDoFormProps) {
 
     
 
@@ -18,11 +18,11 @@ export default function Tasklist({handleSubmit,todos, deleteTodo, editTodo}:ToDo
         <>
         <Card className='my-5 bg-black'>
             <Card.Body>
-                <Form onSubmit={handleSubmit}>
+                <Form onSubmit={addTodo}>
                     <Form.Label id="form-task" htmlFor="task">Task</Form.Label>
                     <Form.Control type="text" placeholder='Enter a task' name="task"/>
                     <br />
-                    <Button id='' variant="dark" type="submit" value="Submit">Add Task</Button>{' '}
+                    <Button id='' variant="dark" type="submit" value="Submit"> + Add Task</Button>{' '}
                 </Form>
             </Card.Body>
         </Card>

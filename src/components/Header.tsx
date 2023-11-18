@@ -1,6 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { Link } from 'react-router-dom'
 
 type Props = {
     username: string
@@ -9,13 +10,13 @@ type Props = {
 export default function Header({username}:Props) {
 
     return (
-        <Navbar bg="dark" data-bs-theme="dark">
+        <Navbar expand="lg" className="bg-body-dark" >
             <Container>
-                <Navbar.Brand href="#home">React To Do List | {username? username : " New User"}</Navbar.Brand>
+                <Navbar.Brand as={Link} to="home">REACT TO DO LIST | {username? username : " New User"} </Navbar.Brand>
                 <Nav className="me-auto">
-                    <Nav.Link href="#home">Home</Nav.Link>
-                    {/* <Nav.Link href="#features">Tasks</Nav.Link>
-                    <Nav.Link href="#pricing">Logout</Nav.Link> */}
+                    <Nav.Link as={Link} to="home">Home</Nav.Link>
+                    <Nav.Link as={Link} to="tasks">Tasks</Nav.Link>
+                    {/* <Nav.Link as={Link} href="logout">Logout</Nav.Link> */}
                 </Nav>
             </Container>
         </Navbar>
