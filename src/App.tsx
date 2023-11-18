@@ -1,13 +1,10 @@
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Container from "react-bootstrap/esm/Container"
-import Home from "./views/Home"
 import Tasks from "./views/Tasks"
 import AlertMessage from './components/AlertMessage'
 import CategoryType from './types/category'
 import Header from './components/Header'
-import Login from './views/Login'
-import UserType from './types/auth'
 
 export default function App() {
 
@@ -22,10 +19,9 @@ export default function App() {
   return (
     <BrowserRouter>
       <Container>
-        <Header username='Emili' />
+        <Header />
         {message && category && <AlertMessage message={message} category={category} flashMessage={flashMessage}/>}
         <Routes>
-          <Route path='/home' element={<Home/>}/>
           <Route path="/tasks" element={<Tasks flashMessage={flashMessage}/>} />
         </Routes>
       </Container>

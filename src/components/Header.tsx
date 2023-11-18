@@ -11,7 +11,6 @@ export default function Header() {
             <Container>
                 <Navbar.Brand as={Link} to="/">REACT TO DO LIST</Navbar.Brand>
                 <Nav className="me-auto">
-                    <Nav.Link as={Link} to="home">Home</Nav.Link>
                     <Nav.Link as={Link} to="tasks">Tasks</Nav.Link>
                 </Nav>
             </Container>
