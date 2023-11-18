@@ -9,7 +9,7 @@ export default function Header() {
     return (
         <Navbar expand="lg" variant='dark' className="bg-body-dark" >
             <Container>
-                <Navbar.Brand as={Link} to="/">REACT TO DO LIST</Navbar.Brand>
+                <Navbar.Brand>REACT TO DO LIST</Navbar.Brand>
                 <Nav className="me-auto">
                     <Nav.Link as={Link} to="tasks">Tasks</Nav.Link>
                 </Nav>
